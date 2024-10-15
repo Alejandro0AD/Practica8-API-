@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: raat
+  password: Juanca21*
+  host: localhost
+  port: 3306
+
+development:
+  <<: *default
+  database: api_cupones_development
+
+test:
+  <<: *default
+  database: api_cupones_test
+
+production:
+  <<: *default
+  database: api_cupones_production
+  username: prod_user
+  password: <%= ENV['API_CUPONES_DATABASE_PASSWORD'] %>
